@@ -1,4 +1,10 @@
-FROM python:2-onbuild
+FROM    progrium/busybox
 MAINTAINER Ivan Pedrazas <ipedrazas@gmail.com>
 
-CMD [ "python", "./app.py" ]
+RUN opkg-install curl
+
+ADD ./start.sh /bin/start
+ENV SHELL /bin/bash
+
+ENTRYPOINT ["/bin/start"]
+CMD []
