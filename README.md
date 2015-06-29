@@ -7,9 +7,13 @@ Imagine cloudformation, but with containers. The idea behind this bootstraping m
 The workflow is very simple:
 
 1.- Intance sends a request with its instance-id to a controller.
+
 2.- Controller returns the container that bootstraps that instance.
+
 3.- Instance runs that container.
+
 4.- job done.
+
 
 ## Pre-requisistes
 
@@ -19,7 +23,9 @@ To bootstrap an instance with this technique the AMI used has to have docker ins
 
 
 ```
-    docker run -v /var/run/docker.sock:/var/run/docker.sock -e CHECKPOINT_URL=https://checkpoint.local ipedrazas/bootstrap
+    docker run -v /var/run/docker.sock:/var/run/docker.sock \
+    -e CHECKPOINT_URL=https://checkpoint.local \
+    ipedrazas/bootstrap
 
 ```
 
